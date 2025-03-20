@@ -1,0 +1,19 @@
+.bg-body-tertiary{
+    background-color: rgb(63, 63, 63) !important;
+    height: 200px !important;
+    display: flex !important;
+    justify-content: space-around !important;
+}
+.logo{
+    height: 300px;
+    margin-right: 100px !important;
+}
+.link{
+    color: rgb(182, 248, 83) !important;
+}
+#basic-nav-dropdown{
+    color: rgb(182, 248, 83);
+}
+.categories{
+    color: black;
+}
