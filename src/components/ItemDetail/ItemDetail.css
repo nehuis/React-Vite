@@ -1,6 +1,43 @@
 .card{
-    width: 18rem;
-    justify-self: center;
-    margin-top: 50px;
-    align-self: center;
+  width: 18rem;
+  justify-self: center;
+  margin-top: 50px;
+  align-self: center;
+  background-color: lime;
+}
+.entire_card {
+  width: 550px;
+  height: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 100px;
+}
+.entire_card img {
+  height: auto;
+  object-fit: cover;
+}
+.entire_card .card-body {
+  padding: 20px;
+}
+.entire_card .card-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.entire_card .card-text {
+  font-size: 17px;
+  margin-bottom: 15px;
+}
+.cart-container {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.cart-container > div:last-child {
+  margin-top: 40px;
+}
+h6{
+  padding: 15px;
+  font-size: 18px;
 }

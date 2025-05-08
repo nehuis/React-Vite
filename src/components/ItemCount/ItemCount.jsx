@@ -1,14 +1,15 @@
-import React, { useState } from 'react'
+import { useContext } from "react"
+import { CartContext } from "../../Context/CartContext"
+import '../ItemCount/ItemCount.css'
 
-const ItemCount = () => {
-const [counter, setCounter] = useState(0)
+const ItemCount = ({ handleOnAdd }) => {
+  const { counter, sumarProductos, restarProductos } = useContext(CartContext)
 
   return (
-    <div>
-        <button onClick={() => {setCounter(counter + 1)}}>Agregar</button>
-        <p>Cantidad: {counter}</p>
-        <button onClick={() => {setCounter(counter - 1)}}>Quitar</button>
-        <button type="submit">Agregar al carrito</button>
+    <div className="buttons-container">
+      <button onClick={restarProductos} className="counter-btn restar">-</button>
+      <button onClick={handleOnAdd} className="counter-btn agregar">Agregar al carrito: {counter} producto/s</button>
+      <button onClick={sumarProductos} className="counter-btn sumar">+</button>
     </div>
   )
 }

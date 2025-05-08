@@ -1,0 +1,21 @@
+.buttons-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.counter-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.counter-btn.sumar {
+    background-color: lightgreen;
+}
+.counter-btn.agregar {
+    background-color: lightblue;
+}
+.counter-btn.restar {
+    background-color: lightsalmon;
+}

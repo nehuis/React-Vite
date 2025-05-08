@@ -1,7 +1,24 @@
-.cart-widget{
-    color: black;
-    font-size: 20px;
+.cart-widget {
+    position: relative;
+    display: inline-block;
 }
-.numerito{
-    margin-left: 10px;
+
+.widget {
+    font-size: 24px; 
+    color: greenyellow;
+}
+
+.numerito {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background-color: limegreen;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 6px;
+    border-radius: 50%;
+    min-width: 20px;
+    text-align: center;
+    line-height: 1;
 }

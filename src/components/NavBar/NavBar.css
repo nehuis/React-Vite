@@ -3,6 +3,7 @@
     height: 200px !important;
     display: flex !important;
     justify-content: space-around !important;
+    font-weight: bold;
 }
 .logo{
     height: 300px;
@@ -14,6 +15,30 @@
 #basic-nav-dropdown{
     color: rgb(182, 248, 83);
 }
-.categories{
-    color: black;
+a {
+    text-decoration: none;
+}
+.dropdown .dropdown-menu {
+    background-color: greenyellow;
+    border: none;
+    border-radius: 12px;
+    padding: 8px 0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+.categories {
+    background-color: transparent;
+    color: #333;
+    padding: 10px 20px;
+    width: 100%;
+    display: block;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 0;
+}
+.categories:hover {
+    background-color: #e0e0e0;
 }

@@ -1,6 +1,21 @@
 .card{
     background-color: lawngreen;
 }
+.card .card-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.card .card-title{
+    margin-bottom: 15px;
+}
 .btn{
     background-color: black;
+    border-color: lime;
+
+}
+.btn:hover{
+    background-color: greenyellow;
+    border-color: lime;
+    color: black;
 }

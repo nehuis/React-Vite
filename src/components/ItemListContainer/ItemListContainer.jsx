@@ -1,43 +1,32 @@
-import '../ItemListContainer/ItemListContainer.css'
-import ItemList from '../ItemList/ItemList'
-import { useEffect, useState } from 'react'
-import { products } from "../../../productsMock"
-import { useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { getProducts } from '../Services/ProductServices'; 
+import ItemList from '../ItemList/ItemList';
+import Loader from '../Loader/Loader';
 
 const ItemListContainer = () => {
-    const [productos, setProductos] = useState([])
-    const { categoryId } = useParams()
+    const [productos, setProductos] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const { categoryId } = useParams();
 
     useEffect(() => {
-        const tarea = new Promise((resolve, reject) => {
-            setTimeout(() => {
-                const error = false 
-
-                if (error) {
-                    reject("Hubo un error al cargar los productos.")
-                } else {
-                    resolve(products)
-                }
-            }, 500)
+        setLoading(true);
+        getProducts(categoryId)
+        .then((res) => {
+            setProductos(res);
+            setLoading(false);
         })
-
-        tarea
-            .then((resp) => {
-                if (categoryId) {
-                    const productosFiltrados = resp.filter(prod => prod.categoria === categoryId)
-                    setProductos(productosFiltrados)
-                } else {
-                    setProductos(resp)
-                }
-            })
-            .catch(err => console.log(err))
-    }, [categoryId])
+        .catch((error) => {
+            console.error("Error al cargar los productos:", error);
+            setLoading(false);
+        });
+    }, [categoryId]);
 
     return (
         <div>
-            <ItemList productos={productos} />
+            {loading ? <Loader /> : <ItemList productos={productos} />}
         </div>
-    )
-}
+    );
+};  
 
-export default ItemListContainer
+export default ItemListContainer;

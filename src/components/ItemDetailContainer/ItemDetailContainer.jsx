@@ -1,7 +1,8 @@
 import { useParams } from 'react-router-dom';
-import { products } from "../../../productsMock";
 import { useEffect, useState } from 'react';
 import ItemDetail from '../ItemDetail/ItemDetail';
+import { getProductById } from '../Services/ProductServices';
+import Loader from '../Loader/Loader'
 
 const ItemDetailContainer = () => {
   const { id } = useParams();
@@ -10,22 +11,29 @@ const ItemDetailContainer = () => {
 
   useEffect(() => {
     setLoading(true);
-    const timer = setTimeout(() => {
-      const productoEncontrado = products.find((p) => p.id === parseInt(id));
-      setProduct(productoEncontrado || null);
-      setLoading(false);
-    }, 1000);
-
-    return () => clearTimeout(timer);
+    getProductById(id)
+      .then((res) => {
+        setProduct(res);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error en ItemDetailContainer:", error);
+        setLoading(false);
+      });
   }, [id]);
-
-  if (loading) return <div>Cargando producto</div>;
 
   return (
     <div>
-      <ItemDetail producto={product} />;
-    </div>
-  ) 
+    {loading ? (
+      <Loader />
+    ) : product ? (
+      <ItemDetail producto={product} />
+    ) : (
+      <p>Producto no encontrado</p>
+    )}
+  </div>
+
+  );
 };
 
 export default ItemDetailContainer;
