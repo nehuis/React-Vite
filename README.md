@@ -72,4 +72,4 @@ If the cart is empty, there will be a message that indicates that and a button t
 
 ![Empty cart](public/emptycart.png)
 
-This project is for educational purposes only and is not intended for production **use**
+This project is for educational purposes only and is not intended for production use
