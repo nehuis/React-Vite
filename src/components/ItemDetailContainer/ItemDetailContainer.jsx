@@ -1,8 +1,8 @@
-import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import ItemDetail from '../ItemDetail/ItemDetail';
-import { getProductById } from '../Services/ProductServices';
-import Loader from '../Loader/Loader'
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import ItemDetail from "../ItemDetail/ItemDetail";
+import { getProductById } from "../Services/productServices";
+import Loader from "../Loader/Loader";
 
 const ItemDetailContainer = () => {
   const { id } = useParams();
@@ -24,15 +24,14 @@ const ItemDetailContainer = () => {
 
   return (
     <div>
-    {loading ? (
-      <Loader />
-    ) : product ? (
-      <ItemDetail producto={product} />
-    ) : (
-      <p>Producto no encontrado</p>
-    )}
-  </div>
-
+      {loading ? (
+        <Loader />
+      ) : product ? (
+        <ItemDetail producto={product} />
+      ) : (
+        <p>Producto no encontrado</p>
+      )}
+    </div>
   );
 };
 
